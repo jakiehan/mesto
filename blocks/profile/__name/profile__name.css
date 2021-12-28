@@ -1,0 +1,14 @@
+.profile__name {
+  font-size: 42px;
+  line-height: 48px;
+  font-weight: 500;
+  margin: 0 0 16px;
+}
+
+@media screen and (max-width: 935px) {
+  .profile__name {
+    font-size: 27px;
+    line-height: 33px;
+    margin: 0 0 14px;
+  }
+}
