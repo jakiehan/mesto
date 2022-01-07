@@ -87,15 +87,17 @@
   </footer>
 
   <section class="popup popup_opened">
-    <form class="popup__container">
-      <fieldset class="popup__user-info">
-        <h3 class="popup__title">Редактировать профиль</h3>
-        <input class="popup__field-name" type="text" name="name">
-        <input class="popup__field-rank" type="text" name="rank">
-        <button class="popup__save-btn transparency-button transparency-button_more" type="submit">Сохранить</button>
-      </fieldset>
+    <div class="popup__container">
+      <h3 class="popup__title">Редактировать профиль</h3>
+      <form class="popup__form">
+        <fieldset class="popup__user-info">
+          <input class="popup__field-name" type="text" name="name" placeholder="Жак-Ив Кусто">
+          <input class="popup__field-rank" type="text" name="rank" placeholder="Исследователь океана">
+          <button class="popup__save-btn transparency-button transparency-button_more" type="submit">Сохранить</button>
+        </fieldset>
+      </form>
       <button class="popup__close-btn transparency-button"></button>
-    </form>
+    </div>
   </section>
 
 </body>

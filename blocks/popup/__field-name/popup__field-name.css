@@ -1,18 +1,31 @@
 .popup__field-name {
-  max-width: 358px;
+  max-width: 100%;
   min-height: 27px;
   padding: 0;
   margin: 0 0 30px;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  font-family: inherit;
   font-size: 14px;
   line-height: 17px;
   font-weight: normal;
 }
 
-@media screen and (max-width: 934px) {
-  .popup__field-name {
-    max-width: 238px;
-  }
+.popup__field-name::-webkit-input-placeholder {
+  font-family: inherit;
+  color: #000;
+}
+
+.popup__field-name::-moz-placeholder {
+  font-family: inherit;
+  color: #000;
+}
+
+.popup__field-name::-ms-input-placeholder {
+  font-family: inherit;
+  color: #000;
+}
+
+.popup__field-name::placeholder {
+  font-family: inherit;
+  color: #000;
 }
