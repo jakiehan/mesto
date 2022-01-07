@@ -1,0 +1,11 @@
+.gallery__image-like {
+  width: 22px;
+  height: 19px;
+  background-image: url(../../../images/button-like.svg);
+  background-position: center;
+  background-color: #fff;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  margin-right: 20px;
+}

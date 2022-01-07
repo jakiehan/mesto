@@ -1,10 +1,10 @@
-.content {
+.footer {
   max-width: 880px;
   margin: 0 auto;
 }
 
 @media screen and (max-width: 934px) {
-  .content {
-    padding: 0 19px 0;
+  .footer {
+    padding: 0 19px;
   }
 }

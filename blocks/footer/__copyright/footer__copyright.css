@@ -1,13 +1,15 @@
-.profile__rank {
+.footer__copyright {
   font-size: 18px;
   line-height: 22px;
-  font-weight: 400;
-  margin: 0;
+  font-weight: normal;
+  margin: 0 0 60px;
+  color: #545454;
 }
 
 @media screen and (max-width: 934px) {
-  .profile__rank {
+  .footer__copyright {
     font-size: 14px;
     line-height: 17px;
+    margin: 0 0 36px;
   }
 }

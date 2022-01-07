@@ -10,17 +10,80 @@
   <header class="header">
     <img class="header__logo" src="./images/logo-header.svg" alt="Логотип">
   </header>
+
   <main class="content">
     <section class="profile">
       <img class="profile__avatar" src="./images/avatar.png" alt="Фото профиля">
       <div class="profile__info">
         <h1 class="profile__name">Жак-Ив Кусто</h1>
-        <button class="profile__edit-button"></button>
+        <button class="profile__edit-button transparency-button"></button>
         <p class="profile__rank">Исследователь океана</p>
       </div>
-      <button class="profile__add-button"></button>
+      <button class="profile__add-button transparency-button"></button>
     </section>
     
+    <section class="gallery">
+      <ul class="gallery__elements">
+        <li>
+          <figure class="gallery__element">
+            <img class="gallery__image" src="./images/gallery-karachaevsk.png" alt="Карачаевск">
+            <div class="gallery__info">
+              <p class="gallery__image-title">Карачаевск</p>
+              <button class="gallery__image-like gallery__image-like_active transparency-button"></button>
+            </div>
+          </figure>
+        </li>
+        <li>
+          <figure class="gallery__element">
+            <img class="gallery__image" src="./images/gallery-cat.png" alt="Кошка">
+            <div class="gallery__info">
+              <p class="gallery__image-title">Кошка Шерри</p>
+              <button class="gallery__image-like gallery__image-like_active transparency-button"></button>
+            </div>
+          </figure>
+        </li>
+        <li>
+          <figure class="gallery__element">
+            <img class="gallery__image" src="./images/gallery-dombay.png" alt="Домбай">
+            <div class="gallery__info">
+              <p class="gallery__image-title">Домбай</p>
+              <button class="gallery__image-like gallery__image-like_active transparency-button"></button>
+            </div>
+          </figure>
+        </li>
+        <li>
+          <figure class="gallery__element">
+            <img class="gallery__image" src="./images/gallery-sneg.png" alt="Летний снег">
+            <div class="gallery__info">
+              <p class="gallery__image-title">Снег в Забайкалье</p>
+              <button class="gallery__image-like gallery__image-like_active transparency-button"></button>
+            </div>
+          </figure>
+        </li>
+        <li>
+          <figure class="gallery__element">
+            <img class="gallery__image" src="./images/gallery-bagul.png" alt="Багульник">
+            <div class="gallery__info">
+              <p class="gallery__image-title">Багульник</p>
+              <button class="gallery__image-like gallery__image-like_active transparency-button"></button>
+            </div>
+          </figure>
+        </li>
+        <li>
+          <figure class="gallery__element">
+            <img class="gallery__image" src="./images/gallery-istok.png" alt="Исток">
+            <div class="gallery__info">
+              <p class="gallery__image-title">Исток</p>
+              <button class="gallery__image-like gallery__image-like_active transparency-button"></button>
+            </div>
+          </figure>
+        </li>
+      </ul>
+    </section>
   </main>
+
+  <footer class="footer">
+    <p class="footer__copyright">&#169; 2022 Mesto Russia</p>
+  </footer>
 </body>
 </html>
