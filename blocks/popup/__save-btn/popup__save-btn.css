@@ -1,0 +1,18 @@
+.popup__save-btn {
+  max-width: 358px;
+  min-height: 50px;
+  background-color: #000;
+  padding: 0;
+  margin-bottom: 37px;
+  border: none;
+  border-radius: 2px;
+  color: #fff;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 934px) {
+  .popup__save-btn {
+    max-width: 238px;
+    min-height: 46px;
+  }
+}

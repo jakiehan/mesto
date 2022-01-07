@@ -31,4 +31,16 @@
 /*Footer*/
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
+
+/*Popup*/
+@import url(../blocks/popup/popup.css);
+/*@import url(../blocks/popup/_opened/popup_opened.css);*/
+@import url(../blocks/popup/__container/popup__container.css);
+@import url(../blocks/popup/__user-info/popup__user-info.css);
+@import url(../blocks/popup/__title/popup__title.css);
+@import url(../blocks/popup/__field-name/popup__field-name.css);
+@import url(../blocks/popup/__field-rank/popup__field-rank.css);
+@import url(../blocks/popup/__save-btn/popup__save-btn.css);
+@import url(../blocks/popup/__close-btn/popup__close-btn.css);
 @import url(../blocks/transparency-button/transparency-button.css);
+@import url(../blocks/transparency-button/_more/transparency-button_more.css);

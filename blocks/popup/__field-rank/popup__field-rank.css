@@ -1,0 +1,19 @@
+.popup__field-rank {
+  max-width: 358px;
+  min-height: 27px;
+  padding: 0;
+  margin: 0 0 48px;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: normal;
+}
+
+@media screen and (max-width: 934px) {
+  .popup__field-rank {
+    max-width: 238px;
+    margin: 0 0 45px;
+  }
+}
