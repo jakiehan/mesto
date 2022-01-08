@@ -1,8 +1,7 @@
-.popup__field-name {
+.popup__field {
   max-width: 100%;
   min-height: 27px;
   padding: 0;
-  margin: 0 0 30px;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   font-size: 14px;
@@ -10,22 +9,22 @@
   font-weight: normal;
 }
 
-.popup__field-name::-webkit-input-placeholder {
+.popup__field::-webkit-input-placeholder {
   font-family: inherit;
   color: #000;
 }
 
-.popup__field-name::-moz-placeholder {
+.popup__field::-moz-placeholder {
   font-family: inherit;
   color: #000;
 }
 
-.popup__field-name::-ms-input-placeholder {
+.popup__field::-ms-input-placeholder {
   font-family: inherit;
   color: #000;
 }
 
-.popup__field-name::placeholder {
+.popup__field::placeholder {
   font-family: inherit;
   color: #000;
 }

@@ -3,8 +3,8 @@ let popupCloseBtn = document.querySelector('.popup__close-btn');
 let popup = document.querySelector('.popup');
 
 let popupForm = document.querySelector('.popup__form');
-let popupFieldName = popupForm.querySelector('.popup__field-name');
-let popupFieldRank = popupForm.querySelector('.popup__field-rank');
+let popupFieldName = popupForm.querySelector('.popup__field_type_name');
+let popupFieldRank = popupForm.querySelector('.popup__field_type_rank');
 
 function popupClose() {
   popup.classList.remove('popup_opened');
