@@ -6,11 +6,10 @@
   background-repeat: no-repeat;
   background-position: center;
   border: 1px solid #fff;
+  box-sizing: border-box;
   padding: 0;
   cursor: pointer;
-  position: absolute;
-  top: 15px;
-  right: 0;
+  margin-left: 18px;
 }
 
 @media screen and (max-width: 934px) {
@@ -18,7 +17,6 @@
     width: 18px;
     height: 18px;
     background-size: 7.5px 7.5px;
-    top: 8px;
-    right: 19px;
+    margin-left: 10px;
   }
 }

@@ -1,0 +1,10 @@
+.profile__info-wrapper {
+  max-width: 294px;
+}
+
+@media screen and (max-width: 934px) {
+  .profile__info-wrapper {
+    max-width: 189px;
+    text-align: center;
+  }
+}
