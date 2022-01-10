@@ -6,12 +6,17 @@ let popupForm = document.querySelector('.popup__form');
 let popupFieldName = popupForm.querySelector('.popup__field_type_name');
 let popupFieldRank = popupForm.querySelector('.popup__field_type_rank');
 
+let profileName = document.querySelector('.profile__name');
+let profileRank = document.querySelector('.profile__rank');
+
 function popupClose() {
   popup.classList.remove('popup_opened');
 }
 
 function popupOpen() {
   popup.classList.add('popup_opened');
+  popupFieldName.value = profileName.textContent;
+  popupFieldRank.value = profileRank.textContent;
 }
 
 profileEditButton.addEventListener('click', popupOpen);
@@ -26,9 +31,6 @@ document.addEventListener('keydown', function(evt) {
 
 function formSumbitHandler (evt) {
   evt.preventDefault();
-
-  let profileName = document.querySelector('.profile__name');
-  let profileRank = document.querySelector('.profile__rank');
 
   profileName.textContent = popupFieldName.value;
   profileRank.textContent = popupFieldRank.value;

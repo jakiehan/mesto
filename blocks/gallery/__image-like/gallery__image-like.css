@@ -3,7 +3,7 @@
   height: 19px;
   background-image: url(../../../images/button-like.svg);
   background-position: center;
-  background-color: #fff;
+  background-color: transparent;
   padding: 0;
   border: none;
   cursor: pointer;

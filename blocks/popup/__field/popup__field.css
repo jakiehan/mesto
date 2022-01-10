@@ -9,6 +9,20 @@
   font-weight: normal;
 }
 
+.popup__field:first-child {
+  margin: 0 0 30px;
+}
+
+.popup__field:nth-child(2) {
+  margin: 0 0 48px;
+}
+
+@media screen and (max-width: 934px) {
+  .popup__field:nth-child(2) {
+    margin: 0 0 45px;
+  }
+}
+
 .popup__field::-webkit-input-placeholder {
   font-family: inherit;
   color: #000;
