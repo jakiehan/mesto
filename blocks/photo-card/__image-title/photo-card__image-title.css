@@ -1,4 +1,5 @@
-.gallery__image-title {
+.photo-card__image-title {
+  max-width: calc(100% - 62px);
   font-size: 24px;
   line-height: 29px;
   font-weight: 900;

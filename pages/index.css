@@ -22,12 +22,13 @@
 /*Gallery*/
 @import url(../blocks/gallery/gallery.css);
 @import url(../blocks/gallery/__elements/gallery__elements.css);
-@import url(../blocks/gallery/__element/gallery__element.css);
-@import url(../blocks/gallery/__image/gallery__image.css);
-@import url(../blocks/gallery/__info/gallery__info.css);
-@import url(../blocks/gallery/__image-title/gallery__image-title.css);
-@import url(../blocks/gallery/__image-like/gallery__image-like.css);
-/*@import url(../blocks/gallery/__image-like/_active/gallery__image-like_active.css); Активное состояние кнопки "Лайк"*/ 
+@import url(../blocks/photo-card/photo-card.css);
+@import url(../blocks/photo-card/__image/photo-card__image.css);
+@import url(../blocks/photo-card/__trash/photo-card__trash.css);
+@import url(../blocks/photo-card/__info/photo-card__info.css);
+@import url(../blocks/photo-card/__image-title/photo-card__image-title.css);
+@import url(../blocks/photo-card/__image-like/photo-card__image-like.css);
+@import url(../blocks/photo-card/__image-like/_active/photo-card__image-like_active.css);
 
 /*Footer*/
 @import url(../blocks/footer/footer.css);
@@ -35,6 +36,8 @@
 
 /*Popup*/
 @import url(../blocks/popup/popup.css);
+@import url(../blocks/popup/_viewing-photo/popup_viewing-photo.css);
+@import url(../blocks/popup/__wrapper/popup__wrapper.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
 @import url(../blocks/popup/__container/popup__container.css);
 @import url(../blocks/popup/__form/popup__form.css);
@@ -43,6 +46,9 @@
 @import url(../blocks/popup/__field/popup__field.css);
 @import url(../blocks/popup/__save-btn/popup__save-btn.css);
 @import url(../blocks/popup/__close-btn/popup__close-btn.css);
+@import url(../blocks/popup/__image/popup__image.css);
+@import url(../blocks/popup/__viewing-form/popup__viewing-form.css);
+@import url(../blocks/popup/__image-title/popup__image-title.css);
 @import url(../blocks/transparency-button/transparency-button.css);
 @import url(../blocks/transparency-button/_opacity/transparency-button_opacity_more.css);
 @import url(../blocks/transparency-button/_opacity/transparency-button_opacity_less.css);
