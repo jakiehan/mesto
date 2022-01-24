@@ -31,7 +31,7 @@ const galleryPhotoCards = [
   },
   {
     name: 'Кошка Шерри',
-    link: '../images/photo-card-cat.png'
+    link: './images/photo-card-cat.png'
   },
   {
     name: 'Челябинская область',
