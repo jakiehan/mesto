@@ -10,8 +10,8 @@ const popupFieldName = popupFormProfile.querySelector('.popup__field_type_name')
 const popupFieldRank = popupFormProfile.querySelector('.popup__field_type_rank');
 
 const popupFormCard = document.querySelector('.popup__form_type_card');
-const popupFormTitle = popupFormCard.querySelector('.popup__form_type_title');
-const popupFormLink = popupFormCard.querySelector('.popup__form_type_link');
+const popupFormTitle = popupFormCard.querySelector('.popup__field_type_title');
+const popupFormLink = popupFormCard.querySelector('.popup__field_type_link');
 
 const profileName = document.querySelector('.profile__name');
 const profileRank = document.querySelector('.profile__rank');
@@ -24,36 +24,9 @@ const popupFormImage = document.querySelector('.popup__image');
 const popupImageTitle = document.querySelector('.popup__image-title');
 const popupCloseViewForm = document.querySelector('.popup__close-btn_type_view');
 
-const galleryPhotoCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Кошка Шерри',
-    link: './images/photo-card-cat.png'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
-
 function showPhoto() {
   galleryPhotoCards.forEach((photocard) => {
-    galleryElements.append(createPhotoCard(photocard.name, photocard.link));
+    galleryElements.append(createPhotoCard(photocard));
   });
 };
 
@@ -85,7 +58,7 @@ closeButtonCard.addEventListener('click', () => {
   closePopup(popupPhotoCard);
 });
 
-function handlerFormProfile (evt) {
+function handleFormProfile (evt) {
   evt.preventDefault();
 
   profileName.textContent = popupFieldName.value;
@@ -94,38 +67,42 @@ function handlerFormProfile (evt) {
   closePopup(popupEditProfile);
 }
 
-popupFormProfile.addEventListener('submit', handlerFormProfile);
+popupFormProfile.addEventListener('submit', handleFormProfile);
 
-function createPhotoCard(name, link) {
+function createPhotoCard(dataCard) {
   const galleryElement = elementTemplate.querySelector('.gallery__element').cloneNode('true');
 
-  photoCardImage = galleryElement.querySelector('.photo-card__image');
-  photoCardTitle = galleryElement.querySelector('.photo-card__image-title');
-  photoCardLike = galleryElement.querySelector('.photo-card__image-like');
-  photoCardTrash = galleryElement.querySelector('.photo-card__trash'); 
-  photoCardImage.src = link;
-  photoCardImage.alt = name;
-  photoCardTitle.textContent = name;
+  const photoCardImage = galleryElement.querySelector('.photo-card__image');
+  const photoCardTitle = galleryElement.querySelector('.photo-card__image-title');
+  const photoCardLike = galleryElement.querySelector('.photo-card__image-like');
+  const photoCardTrash = galleryElement.querySelector('.photo-card__trash'); 
+  photoCardImage.src = dataCard.link;
+  photoCardImage.alt = dataCard.name;
+  photoCardTitle.textContent = dataCard.name;
   photoCardLike.addEventListener('click', (evt) => {evt.target.classList.toggle('photo-card__image-like_active')});
   photoCardTrash.addEventListener('click', (evt) => {evt.target.closest('.gallery__element').remove()});
-  photoCardImage.addEventListener('click', (evt) => {
-    popupFormImage.src = evt.target.src;
-    popupFormImage.alt = evt.target.alt;
-    popupImageTitle.textContent = evt.target.alt;
+  photoCardImage.addEventListener('click', () => {
+    popupFormImage.src = photoCardImage.src;
+    popupFormImage.alt = photoCardTitle.textContent;
+    popupImageTitle.textContent = photoCardTitle.textContent;
     openPopup(popupViewForm);
   });
 
   return galleryElement;
 }
 
-function handlerFormCard(evt) {
+function handleFormCard(evt) {
   evt.preventDefault();
-  galleryElements.prepend(createPhotoCard(popupFormTitle.value, popupFormLink.value));
+  const dataUser = {
+    name: popupFormTitle.value, 
+    link: popupFormLink.value
+  }
+  galleryElements.prepend(createPhotoCard(dataUser));
   evt.target.reset();
   closePopup(popupPhotoCard);
 }
 
-popupFormCard.addEventListener('submit', handlerFormCard);
+popupFormCard.addEventListener('submit', handleFormCard);
 
 popupCloseViewForm.addEventListener('click', () => {
   closePopup(popupViewForm);
