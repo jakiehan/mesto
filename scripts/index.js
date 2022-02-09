@@ -36,7 +36,6 @@ function openPopup(elem) {
   elem.classList.add('popup_opened');
   document.addEventListener('keydown', closePopupTheEsc);
   document.addEventListener('click', closePopupClickOverlay);
-  enableValidation(validationConfig);
 }
 
 function closePopup(elem) {

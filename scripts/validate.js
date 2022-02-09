@@ -56,3 +56,5 @@ function toggleButtonState(form, data) {
   button.disabled = !form.checkValidity();
   button.classList.toggle(data.inactiveButtonClass, !form.checkValidity());
 }
+
+enableValidation(validationConfig);
