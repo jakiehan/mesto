@@ -34,10 +34,15 @@ showPhoto();
 
 function openPopup(elem) {
   elem.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopupTheEsc);
+  document.addEventListener('click', closePopupClickOverlay);
+  enableValidation(validationConfig);
 }
 
 function closePopup(elem) {
   elem.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closePopupTheEsc);
+  document.removeEventListener('click', closePopupClickOverlay);
 }
 
 profileEditButton.addEventListener('click', () => {
@@ -58,9 +63,8 @@ closeButtonCard.addEventListener('click', () => {
   closePopup(popupPhotoCard);
 });
 
-function handleFormProfile (evt) {
-  evt.preventDefault();
-
+function handleFormProfile () {
+  
   profileName.textContent = popupFieldName.value;
   profileRank.textContent = popupFieldRank.value;
 
@@ -92,7 +96,6 @@ function createPhotoCard(dataCard) {
 }
 
 function handleFormCard(evt) {
-  evt.preventDefault();
   const dataUser = {
     name: popupFormTitle.value, 
     link: popupFormLink.value
@@ -107,3 +110,17 @@ popupFormCard.addEventListener('submit', handleFormCard);
 popupCloseViewForm.addEventListener('click', () => {
   closePopup(popupViewForm);
 });
+
+function closePopupTheEsc(evt) {
+  const popupActive = document.querySelector('.popup_opened');
+  if (evt.key === 'Escape') {
+    closePopup(popupActive);
+  }
+}
+
+function closePopupClickOverlay(evt) {
+  const popupActive = document.querySelector('.popup_opened');
+  if (evt.target === popupActive) {
+    closePopup(popupActive);
+  }
+}
