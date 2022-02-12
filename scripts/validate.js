@@ -3,7 +3,8 @@ const validationConfig = {
   inputSelector: '.popup__field',
   submitButtonSelector: '.popup__save-btn',
   inputErrorClass: 'popup__field_type_error',
-  inactiveButtonClass: 'popup__save-btn_atr_disabled'
+  inactiveButtonClass: 'popup__save-btn_atr_disabled',
+  errorMessegeSelector: '.popup__validation-error'
 }
 
 function enableValidation(data) {
@@ -55,6 +56,17 @@ function toggleButtonState(form, data) {
   const button = form.querySelector(data.submitButtonSelector);
   button.disabled = !form.checkValidity();
   button.classList.toggle(data.inactiveButtonClass, !form.checkValidity());
+}
+
+function clearErrorMessege(popup, data) {
+  inputs = Array.from(popup.querySelectorAll(data.inputSelector));
+  inputs.forEach((input) => {
+    input.classList.remove(data.inputErrorClass);
+  });
+  errorMessages = Array.from(popup.querySelectorAll(data.errorMessegeSelector));
+  errorMessages.forEach((errorMessage) => {
+    errorMessage.textContent = '';
+  })
 }
 
 enableValidation(validationConfig);

@@ -86,6 +86,7 @@ function closePopupTheEsc(evt) {
   if (evt.key === 'Escape') {
     const popupActive = document.querySelector('.popup_opened');
     closePopup(popupActive);
+    clearErrorMessege(popupEditProfile, validationConfig);
   }
 }
 
@@ -95,9 +96,11 @@ function addListenerClosePopup() {
     popup.addEventListener('mousedown', (evt) => {
       if (evt.target.classList.contains('popup_opened')) {
         closePopup(popup);
+        clearErrorMessege(popupEditProfile, validationConfig);
       }
       if (evt.target.classList.contains('popup__close-btn')) {
         closePopup(popup);
+        clearErrorMessege(popupEditProfile, validationConfig);
       } 
     });
   });
