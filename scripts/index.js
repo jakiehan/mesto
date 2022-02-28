@@ -29,7 +29,7 @@ function showPhoto() {
   galleryPhotoCards.forEach((photocard) => {
     galleryElements.append(createPhotoCard(photocard));
   });
-};
+}
 
 function openPopup(elem) {
   elem.classList.add('popup_opened');
