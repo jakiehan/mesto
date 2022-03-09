@@ -9,13 +9,13 @@ export class Card {
   }
 
   createPhotoCard() {
-    const galleryElement = document
+    this._galleryElement = document
       .querySelector(this._elementTemplate).content
       .querySelector('.gallery__element').cloneNode('true');
-    this._photoCardImage = galleryElement.querySelector('.photo-card__image');
-    this._photoCardTitle = galleryElement.querySelector('.photo-card__image-title');
-    this._photoCardLike = galleryElement.querySelector('.photo-card__image-like');
-    this._photoCardTrash = galleryElement.querySelector('.photo-card__trash');
+    this._photoCardImage = this._galleryElement.querySelector('.photo-card__image');
+    this._photoCardTitle = this._galleryElement.querySelector('.photo-card__image-title');
+    this._photoCardLike = this._galleryElement.querySelector('.photo-card__image-like');
+    this._photoCardTrash = this._galleryElement.querySelector('.photo-card__trash');
 
     this._setEventListeners();
 
@@ -23,21 +23,22 @@ export class Card {
     this._photoCardImage.alt = this._name;
     this._photoCardTitle.textContent = this._name;
 
-    return galleryElement;
+    return this._galleryElement;
   }
 
-  _handlePhotoCardLike(evt) {
-    evt.target.classList.toggle('photo-card__image-like_active');
+  _handlePhotoCardLike = () => {
+    this._photoCardLike.classList.toggle('photo-card__image-like_active');
   }
 
-  _handlePhotoCardTrash(evt) {
-    evt.target.closest('.gallery__element').remove()
+  _handlePhotoCardTrash = () => {
+    this._galleryElement.remove();
+    this._galleryElement = null;
   }
 
   _handlePhotoCardImage = () => {
-    documentSelector.popupFormImage.src = this._photoCardImage.src;
-    documentSelector.popupFormImage.alt = this._photoCardTitle.textContent;
-    documentSelector.popupImageTitle.textContent = this._photoCardTitle.textContent;
+    documentSelector.popupFormImage.src = this._link;
+    documentSelector.popupFormImage.alt = this._name;
+    documentSelector.popupImageTitle.textContent = this._name;
     chart.openPopup(documentSelector.popupViewForm);
   }
 

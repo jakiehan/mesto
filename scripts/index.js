@@ -48,10 +48,7 @@ function addListenerClosePopup() {
   const popups = Array.from(document.querySelectorAll('.popup'));
   popups.forEach((popup) => {
     popup.addEventListener('mousedown', (evt) => {
-      if (evt.target.classList.contains('popup_opened')) {
-        chart.closePopup(popup);
-      }
-      if (evt.target.classList.contains('popup__close-btn')) {
+      if ((evt.target.classList.contains('popup_opened')) || (evt.target.classList.contains('popup__close-btn'))) {
         chart.closePopup(popup);
       }
     });
@@ -59,10 +56,10 @@ function addListenerClosePopup() {
 }
 
 documentSelector.profileEditButton.addEventListener('click', () => {
-  chart.openPopup(documentSelector.popupEditProfile);
   documentSelector.popupFieldName.value = documentSelector.profileName.textContent;
   documentSelector.popupFieldRank.value = documentSelector.profileRank.textContent;
-  profileFormValidator.clearErrorMessage(documentSelector.popupEditProfile);
+  chart.openPopup(documentSelector.popupEditProfile);
+  profileFormValidator.clearErrorMessage();
 });
 
 documentSelector.profileAddButton.addEventListener('click', () => {

@@ -2,11 +2,13 @@ export class FormValidator {
   constructor(validationConfig, form) {
     this._data = validationConfig;
     this._form = form;
+
+    this._button = this._form.querySelector(this._data.submitButtonSelector);
+    this._inputs = Array.from(this._form.querySelectorAll(this._data.inputSelector));
   }
 
   _setEventListeners() {
-    const inputList = Array.from(this._form.querySelectorAll(this._data.inputSelector));
-    inputList.forEach((input) => {
+    this._inputs.forEach((input) => {
       input.addEventListener('input', () => {
         this._checkInputValidity(input);
       });
@@ -38,20 +40,15 @@ export class FormValidator {
   }
 
   toggleButtonState = () => {
-    const button = this._form.querySelector(this._data.submitButtonSelector);
-    button.disabled = !this._form.checkValidity();
-    button.classList.toggle(this._data.inactiveButtonClass, !this._form.checkValidity());
+    this._button.disabled = !this._form.checkValidity();
+    this._button.classList.toggle(this._data.inactiveButtonClass, !this._form.checkValidity());
   }
 
-  clearErrorMessage(popup) {
-    const inputs = Array.from(popup.querySelectorAll(this._data.inputSelector));
-    inputs.forEach((input) => {
+  clearErrorMessage() {
+    this._inputs.forEach((input) => {
       input.classList.remove(this._data.inputErrorClass);
+      this._hideError(input);
     });
-    const errorMessages = Array.from(popup.querySelectorAll(this._data.errorMessageSelector));
-    errorMessages.forEach((errorMessage) => {
-      errorMessage.textContent = '';
-    })
   }
 
   enableValidation() {
