@@ -5,31 +5,35 @@ import FormValidator from '../components/FormValidator.js';
 import popupWithImage from '../components/popupWithImage.js';
 import popupWithForm from '../components/popupWithForm.js';
 import UserInfo from '../components/UserInfo.js';
-import { selector, galleryPhotoCards, validationConfig } from '../utils/constants.js';
+import {
+  documentSelectors,
+  galleryPhotoCards,
+  validationConfig,
+  profileEditButton,
+  profileAddButton,
+  popupFieldName,
+  popupFieldRank,
+} from '../utils/constants.js';
 
-const profileFormValidator = new FormValidator(validationConfig, selector.popupFormProfile);
-const cardFormValidator = new FormValidator(validationConfig, selector.popupFormCard);
+const profileFormValidator = new FormValidator(validationConfig, documentSelectors.popupFormProfile);
+const cardFormValidator = new FormValidator(validationConfig, documentSelectors.popupFormCard);
 
 const showPhoto = new Section({
-  items: galleryPhotoCards,
   renderer: (item) => {
     showPhoto.addItem(generateCard(item));
   }
-}, selector.galleryElements);
+}, documentSelectors.galleryElements);
 
-const popupImage = new popupWithImage(selector.popupViewForm, {
-  popupImage: '.popup__image',
-  popupTitle: '.popup__image-title'
-});
+const popupImage = new popupWithImage(documentSelectors.popupViewForm);
 
-const popupPhotoCard = new popupWithForm(selector.popupPhotoCard, {
+const popupPhotoCard = new popupWithForm(documentSelectors.popupPhotoCard, {
   handleForm: (inputData) => {
     showPhoto.addItem(generateCard(inputData));
     popupPhotoCard.close();
   }
 });
 
-const popupEditProfile = new popupWithForm(selector.popupEditProfile, {
+const popupEditProfile = new popupWithForm(documentSelectors.popupEditProfile, {
   handleForm: (inputData) => {
     userData.setUserInfo(inputData)
     popupEditProfile.close();
@@ -37,20 +41,20 @@ const popupEditProfile = new popupWithForm(selector.popupEditProfile, {
 });
 
 const userData = new UserInfo({
-  nameSelector: selector.profileName,
-  rankSelector: selector.profileRank
+  nameSelector: documentSelectors.profileName,
+  rankSelector: documentSelectors.profileRank
 });
 
 profileFormValidator.enableValidation();
 cardFormValidator.enableValidation();
-showPhoto.renderItems();
+showPhoto.renderItems(galleryPhotoCards);
 popupImage.setEventListeners();
 popupPhotoCard.setEventListeners();
 popupEditProfile.setEventListeners();
 
 // Возвращаем готовый элемент фотокарточки
 function generateCard(data) {
-  const card = new Card(data, selector.template, {
+  const card = new Card(data, documentSelectors.template, {
     handleCardClick: (name, link) => {
       popupImage.open(name, link);
     }
@@ -60,19 +64,18 @@ function generateCard(data) {
 }
 
 // Слушаем кнопку открытия попапа редактирования профиля(подставляем данные в инпуты, открываем попапыч)
-selector.profileEditButton.addEventListener('click', () => {
+profileEditButton.addEventListener('click', () => {
   const profileData = userData.getUserInfo();
-  selector.popupFieldName.value = profileData.name;
-  selector.popupFieldRank.value = profileData.rank;
-  popupEditProfile.open();
+  popupFieldName.value = profileData.name;
+  popupFieldRank.value = profileData.rank;
   profileFormValidator.clearErrorMessage();
+  profileFormValidator.toggleButtonState();
+  popupEditProfile.open();
 });
 
 // Слушаем кнопку открытия попапа добавления фотокарточки
-selector.profileAddButton.addEventListener('click', () => {
-  popupPhotoCard.open();
+profileAddButton.addEventListener('click', () => {
   cardFormValidator.clearErrorMessage();
   cardFormValidator.toggleButtonState();
+  popupPhotoCard.open();
 });
-
-// Слушаем белый шум

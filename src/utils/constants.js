@@ -25,30 +25,23 @@ export const galleryPhotoCards = [
   }
 ];
 
-export const selector = {
-  profileEditButton: document.querySelector('.profile__edit-button'),
+export const documentSelectors = {
   popupEditProfile: '.popup_edit-profile',
   popupPhotoCard: '.popup_photo-card',
-  profileAddButton: document.querySelector('.profile__add-button'),
-
   popupFormProfile: '.popup__form_type_profile',
-  popupFieldName: document.querySelector('.popup__field_type_name'),
-  popupFieldRank: document.querySelector('.popup__field_type_rank'),
-
   popupFormCard: '.popup__form_type_card',
-  popupFormTitle: document.querySelector('.popup__field_type_title'),
-  popupFormLink: document.querySelector('.popup__field_type_link'),
-
-  profileName: document.querySelector('.profile__name'),
-  profileRank: document.querySelector('.profile__rank'),
-
+  profileName: '.profile__name',
+  profileRank: '.profile__rank',
   galleryElements: '.gallery__elements',
-  elementTemplate: document.querySelector('.element-template').content,
-
   popupViewForm: '.popup_viewing-photo',
-
   template: '.element-template',
 };
+
+export const profileEditButton = document.querySelector('.profile__edit-button');
+export const profileAddButton = document.querySelector('.profile__add-button');
+
+export const popupFieldName = document.querySelector('.popup__field_type_name');
+export const popupFieldRank = document.querySelector('.popup__field_type_rank');
 
 export const validationConfig = {
   formSelector: '.popup__form',

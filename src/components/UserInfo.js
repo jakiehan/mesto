@@ -1,7 +1,7 @@
 export default class UserInfo {
   constructor( { nameSelector, rankSelector } ) {
-    this._name = nameSelector;
-    this._rank = rankSelector;
+    this._name = document.querySelector(nameSelector);
+    this._rank = document.querySelector(rankSelector);
   }
   getUserInfo() {
     return {

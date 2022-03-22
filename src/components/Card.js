@@ -5,13 +5,13 @@ export default class Card {
     this._link = dataCard.link;
     this._handleCardClick = handleCardClick;
     this._elementTemplate = elementTemplate;
+    this._galleryElement = document
+      .querySelector(this._elementTemplate).content
+      .querySelector('.gallery__element').cloneNode('true');
   }
 
   // Создаем элемент фотокарточки
   createPhotoCard() {
-    this._galleryElement = document
-      .querySelector(this._elementTemplate).content
-      .querySelector('.gallery__element').cloneNode('true');
     this._photoCardImage = this._galleryElement.querySelector('.photo-card__image');
     this._photoCardTitle = this._galleryElement.querySelector('.photo-card__image-title');
     this._photoCardLike = this._galleryElement.querySelector('.photo-card__image-like');
