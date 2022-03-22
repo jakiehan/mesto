@@ -5,7 +5,7 @@ export const galleryPhotoCards = [
   },
   {
     name: 'Кошка Шерри',
-    link: './images/photo-card-cat.png'
+    link: 'https://images.unsplash.com/photo-1647907504851-08959d43d186?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1073&q=80'
   },
   {
     name: 'Челябинская область',
@@ -25,29 +25,27 @@ export const galleryPhotoCards = [
   }
 ];
 
-export const documentSelector = {
+export const selector = {
   profileEditButton: document.querySelector('.profile__edit-button'),
-  popupEditProfile: document.querySelector('.popup_edit-profile'),
-  popupPhotoCard: document.querySelector('.popup_photo-card'),
+  popupEditProfile: '.popup_edit-profile',
+  popupPhotoCard: '.popup_photo-card',
   profileAddButton: document.querySelector('.profile__add-button'),
 
-  popupFormProfile: document.querySelector('.popup__form_type_profile'),
+  popupFormProfile: '.popup__form_type_profile',
   popupFieldName: document.querySelector('.popup__field_type_name'),
   popupFieldRank: document.querySelector('.popup__field_type_rank'),
 
-  popupFormCard: document.querySelector('.popup__form_type_card'),
+  popupFormCard: '.popup__form_type_card',
   popupFormTitle: document.querySelector('.popup__field_type_title'),
   popupFormLink: document.querySelector('.popup__field_type_link'),
 
   profileName: document.querySelector('.profile__name'),
   profileRank: document.querySelector('.profile__rank'),
 
-  galleryElements: document.querySelector('.gallery__elements'),
+  galleryElements: '.gallery__elements',
   elementTemplate: document.querySelector('.element-template').content,
 
-  popupViewForm: document.querySelector('.popup_viewing-photo'),
-  popupFormImage: document.querySelector('.popup__image'),
-  popupImageTitle: document.querySelector('.popup__image-title'),
+  popupViewForm: '.popup_viewing-photo',
 
   template: '.element-template',
 };

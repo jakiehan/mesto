@@ -1,13 +1,13 @@
-import { chart } from './utils.js';
-import { documentSelector } from './constants.js';
 
-export class Card {
-  constructor(dataCard, elementTemplate) {
+export default class Card {
+  constructor(dataCard, elementTemplate, { handleCardClick }) {
     this._name = dataCard.name;
     this._link = dataCard.link;
+    this._handleCardClick = handleCardClick;
     this._elementTemplate = elementTemplate;
   }
 
+  // Создаем элемент фотокарточки
   createPhotoCard() {
     this._galleryElement = document
       .querySelector(this._elementTemplate).content
@@ -26,25 +26,23 @@ export class Card {
     return this._galleryElement;
   }
 
+  // Лайк(активный/неактивный)
   _handlePhotoCardLike = () => {
     this._photoCardLike.classList.toggle('photo-card__image-like_active');
   }
 
+  // Удаляем карточку
   _handlePhotoCardTrash = () => {
     this._galleryElement.remove();
     this._galleryElement = null;
   }
 
-  _handlePhotoCardImage = () => {
-    documentSelector.popupFormImage.src = this._link;
-    documentSelector.popupFormImage.alt = this._name;
-    documentSelector.popupImageTitle.textContent = this._name;
-    chart.openPopup(documentSelector.popupViewForm);
-  }
-
+  // Слушаем
   _setEventListeners() {
     this._photoCardLike.addEventListener('click', this._handlePhotoCardLike);
     this._photoCardTrash.addEventListener('click', this._handlePhotoCardTrash);
-    this._photoCardImage.addEventListener('click', this._handlePhotoCardImage);
+    this._photoCardImage.addEventListener('click', () => {
+      this._handleCardClick(this._name, this._link);
+    });
   }
 }
