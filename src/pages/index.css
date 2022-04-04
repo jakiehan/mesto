@@ -12,6 +12,7 @@
 /*Profile*/
 @import url(../blocks/profile/profile.css);
 @import url(../blocks/profile/__avatar/profile__avatar.css);
+@import url(../blocks/profile/__avatar-edit/profile__avatar-edit.css);
 @import url(../blocks/profile/__info/profile__info.css);
 @import url(../blocks/profile/__info-wrapper/profile__info-wrapper.css);
 @import url(../blocks/profile/__name/profile__name.css);
@@ -27,8 +28,10 @@
 @import url(../blocks/photo-card/__trash/photo-card__trash.css);
 @import url(../blocks/photo-card/__info/photo-card__info.css);
 @import url(../blocks/photo-card/__image-title/photo-card__image-title.css);
+@import url(../blocks/photo-card/__image-like-wrapper/photo-card__image-like-wrapper.css);
 @import url(../blocks/photo-card/__image-like/photo-card__image-like.css);
 @import url(../blocks/photo-card/__image-like/_active/photo-card__image-like_active.css);
+@import url(../blocks/photo-card/__image-like-count/photo-card__image-like-count.css);
 
 /*Footer*/
 @import url(../blocks/footer/footer.css);
@@ -40,15 +43,17 @@
 @import url(../blocks/popup/_opened/popup_opened.css);
 @import url(../blocks/popup/__container/popup__container.css);
 @import url(../blocks/popup/__form/popup__form.css);
-@import url(../blocks/popup/__user-info/popup__user-info.css);
+@import url(../blocks/popup/__input-info/popup__input-info.css);
 @import url(../blocks/popup/__title/popup__title.css);
+@import url(../blocks/popup/__title/_margin/popup__title_margin_bottom.css);
 @import url(../blocks/popup/__field/popup__field.css);
 @import url(../blocks/popup/__field/_type/popup__field_type_error.css);
 @import url(../blocks/popup/__input-wrapper/popup__input-wrapper.css);
 @import url(../blocks/popup/__validation-error/popup__validation-error.css);
 @import url(../blocks/popup/__wrapper/popup__wrapper.css);
-@import url(../blocks/popup/__save-btn/popup__save-btn.css);
-@import url(../blocks/popup/__save-btn/_atr/popup__save-btn_atr_disabled.css);
+@import url(../blocks/popup/__btn-s/popup__btn-s.css);
+@import url(../blocks/popup/__btn-s/_atr/popup__btn-s_atr_disabled.css);
+@import url(../blocks/popup/__btn-s/_position/popup__btn-s_position_center.css);
 @import url(../blocks/popup/__close-btn/popup__close-btn.css);
 @import url(../blocks/popup/__image/popup__image.css);
 @import url(../blocks/popup/__viewing-form/popup__viewing-form.css);
