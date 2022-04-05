@@ -12,8 +12,6 @@ export default class Api {
       throw res.status;
     }).then(obj => {
       return obj;
-    }).catch(err => {
-      throw err;
     })
   }
 

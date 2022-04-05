@@ -22,17 +22,13 @@ import {
 
 const api = new Api(apiOptions);
 
-api.getUserInfo().then((infoProfile) => {
-  userData.setUserInfo(infoProfile);
-  userData.setUserAvatar(infoProfile);
-}).catch(err => {
-  console.log(`Не удалось загрузить данные профиля ${ err }`)
-})
-
-api.getCards().then((cards) => {
-  showPhoto.renderItems(cards);
-}).catch(err => {
-  console.log(`Не удалось загрузить фотокарточки с сервера ${ err }`)
+Promise.all([api.getUserInfo(), api.getCards()])
+  .then(([userInfo, cards]) => {
+    userData.setUserInfo(userInfo);
+    userData.setUserAvatar(userInfo);
+    showPhoto.renderItems(cards);
+  }).catch(err => {
+  console.log(`Ошибка: ${ err }`)
 })
 
 const profileFormValidator = new FormValidator(validationConfig, popupFormSelectors.popupFormProfile);
@@ -52,12 +48,12 @@ const popupPhotoCard = new PopupWithForm(popupSelectors.popupPhotoCard, {
     popupPhotoCard.changeTextBtn(true, 'Сохранение...');
     api.uploadCard(inputData).then((card) => {
       showPhoto.addItem(generateCard(card));
+      popupPhotoCard.close();
     }).catch(err => {
       console.log(`Не удалось загрузить фото на сервер ${ err }`)
     }).finally(() => {
       popupPhotoCard.changeTextBtn(false, 'Создать');
     })
-    popupPhotoCard.close();
   }
 });
 
@@ -65,13 +61,13 @@ const popupEditAvatar = new PopupWithForm(popupSelectors.popupEditAvatar, {
   handleForm: (inputData) => {
     popupEditAvatar.changeTextBtn(true, 'Сохранение...');
     api.updateAvatar(inputData).then((avatar) => {
-      userData.setUserAvatar(avatar)
+      userData.setUserAvatar(avatar);
+      popupEditAvatar.close();
     }).catch(err => {
       console.log(`Не удалось обновить фото профиля ${ err }`)
     }).finally(() => {
       popupEditAvatar.changeTextBtn(false, 'Сохранить');
     })
-    popupEditAvatar.close();
   }
 });
 
@@ -79,13 +75,13 @@ const popupEditProfile = new PopupWithForm(popupSelectors.popupEditProfile, {
   handleForm: (inputData) => {
     popupEditProfile.changeTextBtn(true, 'Сохранение...');
     api.updateProfileInfo(inputData).then((infoProfile) => {
-      userData.setUserInfo(infoProfile)
+      userData.setUserInfo(infoProfile);
+      popupEditProfile.close();
     }).catch(err => {
       console.log(`Не удалось обновить данные профиля ${ err }`)
     }).finally(() => {
       popupEditProfile.changeTextBtn(false, 'Сохранить');
     })
-    popupEditProfile.close();
   }
 });
 
@@ -93,11 +89,11 @@ const popupDeleteCard = new PopupConfirmationAction (popupSelectors.popupDeleteC
   handleSubmit: (Card) => {
     api.deleteCard(Card._idCard).then(() => {
       Card.handlePhotoCardTrash();
+      popupDeleteCard.close();
     }).catch(err => {
       console.log(`Не удалось удалить фото ${ err }`)
     }).finally(() => {
     })
-    popupDeleteCard.close();
   }
 });
 
